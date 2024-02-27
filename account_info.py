@@ -26,10 +26,6 @@ def main():
     PASSWORD = os.getenv('PASSWORD')
     SERVER = os.getenv('SERVER')
 
-    print(LOGIN)
-    print(PASSWORD)
-    print(SERVER)
-
     init_meta_trader_4(LOGIN, PASSWORD, SERVER)
 
 if __name__ == "__main__":

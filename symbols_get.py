@@ -1,4 +1,6 @@
 import account_info
+from dotenv import load_dotenv
+import os
 
 def get_acoes(symbols):
     if symbols != None:
@@ -23,7 +25,13 @@ def get_fiis(symbols):
                     print(symbol_name, "-", symbol_description)
 
 def main():
-    mt5 = account_info.init_meta_trader_4(3166686, "lp.12!@.LP", "XPMT5-PRD")
+    load_dotenv()
+
+    LOGIN = os.getenv('LOGIN')
+    PASSWORD = os.getenv('PASSWORD')
+    SERVER = os.getenv('SERVER')
+
+    mt5 = account_info.init_meta_trader_4(LOGIN, PASSWORD, SERVER)
     symbols = mt5.symbols_get()
 
     get_acoes(symbols)
